@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "client": "cd client && npm start",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "node server.js"
   },
   "author": "Bhima",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.1", 
     "bcryptjs": "^2.4.3",
     "config": "^3.3.3",
     "express": "^4.17.1",
