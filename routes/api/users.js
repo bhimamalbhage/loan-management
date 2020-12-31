@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require('express-validator/check');
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const User = require("../../models/User");
 
@@ -45,8 +46,6 @@ router.post('/register',[
         user.password = await bcrypt.hash(password, salt);
   
         await user.save();
-
-        res.status(500).send("User Registered Successfully.");
 
   
         //Return jsonwebtoken
